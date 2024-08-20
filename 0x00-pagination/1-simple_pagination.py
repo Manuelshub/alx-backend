@@ -23,6 +23,7 @@ def index_range(page: int, page_size: int) -> Tuple:
 
     return (start_index, end_index)
 
+
 class Server:
     """Server class to paginate a database of popular baby names
     """
@@ -30,7 +31,7 @@ class Server:
 
     def __init__(self) -> None:
         self.__dataset = None
-    
+
     def dataset(self) -> List[List]:
         """Cached dataset
         """
@@ -41,8 +42,18 @@ class Server:
             self.__dataset = dataset[1:]
 
         return self.__dataset
-    
+
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
+        """
+        Retrieves a page of data from the dataset.
+
+        Args:
+            page (int): The page number to retrieve (1-indexed). Defaults to 1.
+            page_size (int): The number of items per page. Defaults to 10.
+
+        Returns:
+            List[List]: A list of lists containing the data for the specified page.
+        """
         assert isinstance(page, int) and page > 0
         assert isinstance(page_size, int) and page_size > 0
         assert isinstance(self.dataset(), list)
@@ -50,5 +61,5 @@ class Server:
         st_index, end_index = index_range(page, page_size)
         if page >= len(self.dataset()) or page_size == 0:
             return []
-        
+
         return self.dataset()[st_index:end_index]
