@@ -52,7 +52,7 @@ class Server:
             page_size (int): The number of items per page. Defaults to 10.
 
         Returns:
-            List[List]: A list of lists containing the data for the specified page.
+            List[List]: A list of lists containing the data for a page.
         """
         assert isinstance(page, int) and page > 0
         assert isinstance(page_size, int) and page_size > 0
