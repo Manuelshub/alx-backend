@@ -75,10 +75,11 @@ class Server:
         Returns:
             Dict: A dictionary containing hypermedia information for a page.
         """
+        length = len(self.dataset())
         dataset = Server.get_page(self, page, page_size)
         prev_page = page - 1 if page > 1 else None
-        next_page = page + 1 if page < math.ceil(len(self.dataset()) / page_size) else None
-        total_pages = math.ceil(len(self.dataset()) / page_size)
+        next_page = page + 1 if page < math.ceil(length / page_size) else None
+        total_pages = math.ceil(length / page_size)
 
         return {
             "page_size": page_size,
