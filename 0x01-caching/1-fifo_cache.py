@@ -9,7 +9,7 @@ class FIFOCache(BaseCaching):
     """
     This class inherits from BaseCaching and is a caching system
     """
-    
+
     def __init__(self):
         """ Initializing
         """
