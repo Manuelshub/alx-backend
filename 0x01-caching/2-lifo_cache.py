@@ -38,9 +38,9 @@ class LIFOCache(BaseCaching):
         Args:
             key (str): The key of the item to be retrieved.
         Returns:
-            any: The item associated with the key if it exists in the cache, otherwise None.
+            any: The item associated with the key if it
+            exists in the cache, otherwise None.
         """
         if key is None or key not in self.cache_data:
             return None
         return self.cache_data[key]
-        
