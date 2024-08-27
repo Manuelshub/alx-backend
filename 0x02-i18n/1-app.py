@@ -17,8 +17,6 @@ app = Flask(__name__)
 babel = Babel(app)
 
 
-
-
 @app.route("/", strict_slashes=False)
 def index() -> str:
     """ Returns a string """
