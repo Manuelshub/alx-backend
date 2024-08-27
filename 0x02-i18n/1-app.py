@@ -5,10 +5,6 @@ from flask import Flask, render_template
 from flask_babel import Babel
 
 
-app = Flask(__name__)
-babel = Babel(app)
-
-
 class Config():
     """ Config class
     """
@@ -17,10 +13,16 @@ class Config():
     BABEL_DEFAULT_TIMEZONE = "UTC"
 
 
+app = Flask(__name__)
+babel = Babel(app)
+
+
+
+
 @app.route("/", strict_slashes=False)
 def index() -> str:
     """ Returns a string """
-    return render_template("0-index.html")
+    return render_template("1-index.html")
 
 
 if __name__ == "__main__":
